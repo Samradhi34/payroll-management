@@ -116,6 +116,46 @@ Once started, the backend server and static frontend SPA will be accessible at:
 
 ---
 
+## Running with Docker (Recommended)
+
+You can run the entire application stack (Spring Boot app + PostgreSQL database) easily using Docker.
+
+### Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+
+### 1. Start the Containers
+Open your terminal in the project root directory and run:
+```bash
+docker compose up --build -d
+```
+This builds the Spring Boot application image and starts both the application and the PostgreSQL database container in the background.
+
+### 2. Restore Seed Data (First Time Only)
+Since the container database starts empty, you need to import the test data. Run the following command in your terminal:
+
+**Windows PowerShell:**
+```powershell
+Get-Content seed_data.sql | docker exec -i postgres-db psql -U postgres -d payroll-management
+```
+
+**macOS / Linux:**
+```bash
+docker exec -i postgres-db psql -U postgres -d payroll-management < seed_data.sql
+```
+
+### 3. Access the App
+Once the containers are running, navigate to:
+- **Application URL**: [http://localhost:8080](http://localhost:8080)
+
+### 4. Stop the Containers
+To stop and remove the active containers:
+```bash
+docker compose down
+```
+*Note: Your data is persisted inside a Docker volume named `pgdata` and will not be deleted when you stop the containers.*
+
+---
+
 ## Default Login Credentials
 Upon startup, the database is automatically seeded with default user profiles:
 
