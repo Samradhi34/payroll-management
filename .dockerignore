@@ -1,0 +1,29 @@
+# Ignore compiled output
+target/
+build/
+
+# Ignore local salary slips files (since container handles them via volumes)
+salary-slips/
+
+# Ignore Git directory and config
+.git/
+.gitignore
+
+# Ignore IDE files and settings
+.settings/
+.classpath
+.project
+.factorypath
+.springBeans
+.sts4-cache
+.vscode/
+.idea/
+*.iml
+
+# Ignore logs
+*.log
+src/main/resources/static/logs/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

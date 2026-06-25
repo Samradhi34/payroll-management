@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Database Service (PostgreSQL)
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: payroll-management
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - epms-network
+
+  # Application Service (Spring Boot + Static Frontend SPA)
+  epms-app:
+    build: .
+    container_name: epms-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+    environment:
+      # Inject DB connection parameters dynamically (overrides local localhost defaults)
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/payroll-management
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      
+      # Cloudinary Configuration
+      CLOUDINARY_CLOUD_NAME: dymg3tgsw
+      CLOUDINARY_API_KEY: 623719717568191
+      CLOUDINARY_API_SECRET: DxDkaVJwTx-qCfnsQAu9joqrXng
+    volumes:
+      # Mount volume to persist employee salary slip PDFs across container restarts
+      - salary-slips-volume:/app/salary-slips
+    networks:
+      - epms-network
+
+volumes:
+  pgdata:
+  salary-slips-volume:
+
+networks:
+  epms-network:
+    driver: bridge
