@@ -1,0 +1,122 @@
+/* =============================================================================
+   EPMS Design System — CSS Custom Properties (Design Tokens)
+   Centralizes all design decisions. Change a value here to update everywhere.
+   ============================================================================= */
+
+:root {
+  /* ── Brand Colors ─────────────────────────────────────────────────── */
+  --color-primary:       #4F46E5;
+  --color-primary-dark:  #3730A3;
+  --color-primary-light: #818CF8;
+  --color-primary-alpha: rgba(79, 70, 229, 0.12);
+
+  --color-success:       #10B981;
+  --color-success-light: rgba(16, 185, 129, 0.12);
+  --color-warning:       #F59E0B;
+  --color-warning-light: rgba(245, 158, 11, 0.12);
+  --color-danger:        #EF4444;
+  --color-danger-light:  rgba(239, 68, 68, 0.12);
+  --color-info:          #3B82F6;
+  --color-info-light:    rgba(59, 130, 246, 0.12);
+
+  /* ── Payroll Status Badge Colors ──────────────────────────────────── */
+  --status-generated: #6366F1;
+  --status-approved:  #F59E0B;
+  --status-paid:      #10B981;
+  --status-cancelled: #EF4444;
+
+  /* ── Neutral Grays ────────────────────────────────────────────────── */
+  --gray-50:  #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+
+  /* ── Sidebar (Dark) ───────────────────────────────────────────────── */
+  --sidebar-bg:          #1E1B4B;
+  --sidebar-border:      rgba(255,255,255,0.06);
+  --sidebar-text:        rgba(255,255,255,0.65);
+  --sidebar-text-hover:  #FFFFFF;
+  --sidebar-active-bg:   rgba(99, 102, 241, 0.25);
+  --sidebar-active-text: #A5B4FC;
+  --sidebar-icon:        rgba(255,255,255,0.45);
+
+  /* ── Surface & Background ─────────────────────────────────────────── */
+  --bg-app:     #F1F5F9;
+  --bg-surface: #FFFFFF;
+  --bg-overlay: rgba(0,0,0,0.45);
+
+  /* ── Text ─────────────────────────────────────────────────────────── */
+  --text-primary:   #111827;
+  --text-secondary: #6B7280;
+  --text-muted:     #9CA3AF;
+  --text-inverse:   #FFFFFF;
+  --text-link:      #4F46E5;
+
+  /* ── Border ───────────────────────────────────────────────────────── */
+  --border-color:  #E5E7EB;
+  --border-radius: 10px;
+  --border-radius-sm: 6px;
+  --border-radius-lg: 16px;
+  --border-radius-pill: 999px;
+
+  /* ── Shadow ───────────────────────────────────────────────────────── */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.09);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+
+  /* ── Spacing Scale ────────────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ── Typography ───────────────────────────────────────────────────── */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs:   11px;
+  --font-size-sm:   13px;
+  --font-size-base: 14px;
+  --font-size-md:   15px;
+  --font-size-lg:   16px;
+  --font-size-xl:   18px;
+  --font-size-2xl:  22px;
+  --font-size-3xl:  28px;
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --line-height-tight:  1.25;
+  --line-height-normal: 1.5;
+  --line-height-loose:  1.75;
+
+  /* ── Layout ───────────────────────────────────────────────────────── */
+  --sidebar-width:          260px;
+  --sidebar-collapsed-width: 68px;
+  --header-height:          64px;
+  --content-max-width:      1280px;
+
+  /* ── Transition ───────────────────────────────────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ── Z-index scale ────────────────────────────────────────────────── */
+  --z-sidebar:  100;
+  --z-header:   200;
+  --z-dropdown: 300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-loader:   600;
+}

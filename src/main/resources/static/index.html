@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EMSPro — Employee Payroll Management System. Manage employees, attendance, payroll, and salary slips." />
+  <meta name="theme-color" content="#4F46E5" />
+
+  <!-- SEO -->
+  <title>EMSPro — Employee Payroll Management System</title>
+  <meta property="og:title"       content="EMSPro — Employee Payroll Management" />
+  <meta property="og:description" content="Production-ready HRMS frontend for managing payroll, employees, attendance." />
+
+  <!-- Preconnect for Google Fonts (performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS layer — order matters: variables → base → components -->
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+
+  <!-- Favicon (inline SVG as data URI) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%234F46E5'/%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' fill='none' d='M16 8c-2 0-4 1.1-4 2.5s2 2.5 4 2.5 4 1.1 4 2.5-2 2.5-4 2.5M16 8v-1M16 8v12M16 20v1'/%3E%3C/svg%3E" />
+</head>
+
+<body>
+  <!--
+    EPMS SPA Shell
+    ─────────────────────────────────────────────────────────────────────────
+    This is the only HTML file. All page content is dynamically injected
+    into #app by the JavaScript router.
+
+    Structure injected by app.js:
+      #auth-shell   — login / register page (no sidebar)
+      #sidebar      — role-aware navigation
+      #main         — header + #page-content
+        #header     — top bar with breadcrumb + user info
+        #page-content — dynamic page injection target
+
+    Security:
+      - All user-controlled data is inserted via .textContent (never innerHTML)
+      - JWT stored in sessionStorage (clears on tab close)
+      - 401/403 handled centrally in http.js
+
+    Accessibility:
+      - Semantic landmarks: <header>, <main>, <aside>, <nav>
+      - aria-live="polite" on #page-content for screen readers
+      - Focus managed by modal.js (trap + return on close)
+      - All interactive elements have aria-label
+  ─────────────────────────────────────────────────────────────────────────
+  -->
+
+  <!-- App root — starts in auth-mode; JS removes it when user is logged in -->
+  <div id="app" class="auth-mode" role="application" aria-label="EMSPro Application">
+    <!-- Filled by app.js bootstrap() -->
+    <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;flex-direction:column;gap:1rem;color:#6B7280;">
+      <div style="width:40px;height:40px;border:3px solid #E5E7EB;border-top-color:#4F46E5;border-radius:50%;animation:spin 700ms linear infinite;"></div>
+      <span style="font-size:14px;font-family:system-ui,sans-serif;">Loading EMSPro…</span>
+      <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+    </div>
+  </div>
+
+  <!--
+    Entry point — type="module" enables ES6 imports.
+    defer is implicit for modules; all CSS is loaded before JS executes.
+    No bundler required — served directly by Spring Boot's static resource handler.
+  -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
