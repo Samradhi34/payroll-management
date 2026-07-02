@@ -167,7 +167,7 @@ Upon startup, the database is automatically seeded with default user profiles:
   - **Password**: `hr123`
 - **Employee Account**:
   - **Username**: `employee`
-  - **Password**: `emp123`
+  - **Password**: `emppwd123`
 
 ---
 
